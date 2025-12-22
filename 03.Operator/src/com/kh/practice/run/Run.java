@@ -18,8 +18,8 @@ public class Run {
 		//OperatorPractice p4 = new OperatorPractice();
 		//p4.practice4();
 		
-		OperatorPractice p5 = new OperatorPractice();
-		p5.practice5();
+		//OperatorPractice p5 = new OperatorPractice();
+		//p5.practice5();
 		
 		//OperatorPractice p6 = new OperatorPractice();
 		//p6.practice6();
@@ -27,8 +27,8 @@ public class Run {
 		//OperatorPractice p7 = new OperatorPractice();
 		//p7.practice7();
 		
-		//OperatorPractice p8 = new OperatorPractice();
-		//p8.practice8();
+		OperatorPractice p8 = new OperatorPractice();
+		p8.practice8();
 	}	
 
 }

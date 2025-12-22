@@ -360,6 +360,6 @@ public class ControlPractice {
 		if (num>=10000 && num<=999) {
 			System.out.println("자리수가 맞지 않습니다.");
 			}
-	}
+	}//모르겠다
 	
 }

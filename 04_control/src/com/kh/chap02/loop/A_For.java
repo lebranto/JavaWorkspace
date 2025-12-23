@@ -174,6 +174,62 @@ public class A_For {
 		 }
 		 
 	 }
+	 
+	 public void method8() {
+		//*****
+		//*****
+		//*****
+		//*****
+		//*****
+		 
+		 for(int line = 0 ; line< 5 ; line++ ) {
+			 for (int star = 0 ; star < 5 ; star++ ) {
+				 System.out.print("*");
+			 }
+			 System.out.println();
+		 }
+		 
+		 /*for(int line = 0 ; line<4 ; line++ ) {
+			 for (int star = 0 ; star < 5 ; star++ ) {
+				 if(line >= star) {
+				 System.out.print("*");
+				 }
+			 }
+			 System.out.println();
+		 }*/
+		 		 
+	 } //method 8
+
+	 
+	public void method9() {
+		
+		//강사님이 한거
+		for(int i = 0; i<4; i++) {
+			for(int j =0; j<4 ; j++) {
+			if (i==j) System.out.print(i+1);
+			else System.out.print("*");
+		}
+		System.out.println();
+	}	
+		
+		
+		System.out.println();
+		
+				
+		
+		//내가 한거
+		for(int line = 0 ; line<4 ; line++ ) {
+			 for (int star = 0 ; star < 4 ; star++ ){
+				 if(line == star) {
+					 System.out.print(line+1);
+				 }else {
+				 System.out.print("*");
+				 }
+			}
+			 System.out.println();
+		}
+	}//method 9	
+
+	
+	
 }
-	
-	

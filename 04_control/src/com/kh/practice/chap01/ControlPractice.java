@@ -213,6 +213,19 @@ public class ControlPractice {
 		default:
 			System.out.println("올바른 사용자를 입력하세요");
 		}
+		
+		/*switch (authority) {
+		case "관리자":
+			System.out.println("회원관리, 게시글 관리, ");
+		case "회원":
+			System.out.println("게시글 작성, 댓글 작성, ");
+		case "비회원":
+			System.out.println("게시글 조회");
+		}*/
+		
+		// break문 없이 문제 풀이
+		
+		
 	}
 
 	public void practice7() {
@@ -250,6 +263,12 @@ public class ControlPractice {
 
 		System.out.print("연산자를 입력(+,-,*,/,%) : ");
 		char yun = sc.next().charAt(0);
+		
+		if(!(num1> 0 && num2 > 0 &&
+				(yun == '+'||yun == '-'||yun == '*'||yun == '/'||yun == '%'))) {
+			System.out.println("잘못 입력하셨습니다. 프로그램을 종료합니다.");
+			return;
+		}
 
 		switch (yun) {
 		case '+':
@@ -262,7 +281,7 @@ public class ControlPractice {
 			System.out.println(num1 + '*' + num2 + '=' + (num1 * num2));
 			break;
 		case '/':
-			System.out.println(num1 + '/' + num2 + '=' + (num1 / num2));
+			System.out.println(num1 + '/' + num2 + '=' + (num1 / (double) num2));
 			break;
 		case '%':
 			System.out.println(num1 + '%' + num2 + '=' + (num1 / num2));
@@ -272,24 +291,46 @@ public class ControlPractice {
 	}
 
 	public void practice9() {
+		
 		System.out.print("중간 고사 점수 : ");
 		int mid = sc.nextInt();
+		
+		if(mid>101 || mid <0) {
+			System.out.println("점수 입력이 잘못 됐습니다.");
+			return;
+			}
+	
 
 		System.out.print("기말 고사 점수 : ");
 		int fin = sc.nextInt();
+		
+		if(fin>101 || fin <0) {
+			System.out.println("횟수 입력이 잘못 됐습니다.");
+			return;
+		}
 
 		System.out.print("과제 점수 : ");
 		int test = sc.nextInt();
+		
+		if(test>101 || test <0) {
+			System.out.println("횟수 입력이 잘못 됐습니다.");
+			return;
+		}
 
 		System.out.print("출석 횟수 : ");
 		int check = sc.nextInt();
+		
+		if(check>20 || check <0) {
+			System.out.println("횟수 입력이 잘못 됐습니다.");
+			return;
+		}
 
 		int midp = (int) (mid * 0.2);
 		int finp = (int) (fin * 0.3);
 		int testp = (int) (test * 0.3);
-		int checkp = (int) (check * 0.2);
+		int checkp = (int) check; //0.2는 곱할 필요 없다. 전부 합해서 100점이 나와야 하기 때문
 
-		int result = midp + finp + testp + checkp;
+		double result = midp + finp + testp + checkp;
 
 		System.out.println("======결과======");
 		System.out.println("중간 고사 점수(20) : " + midp);
@@ -304,6 +345,8 @@ public class ControlPractice {
 			System.out.println("Fail [점수 부족 " + (70 - result) + "]");
 		} else if (check < check * 0.7) {
 			System.out.println("Fail [출석 횟수 부족 " + check * 0.7 + "/20]");
+		} else {
+			System.out.println("Pass");
 		}
 	}
 
@@ -355,11 +398,24 @@ public class ControlPractice {
 	
 	public void practice11() {
 		System.out.println("비밀번호 입력(1000~9999) : ");
-		int num =sc.nextInt();
+		int pwd =sc.nextInt();
 		
-		if (num>=10000 && num<=999) {
-			System.out.println("자리수가 맞지 않습니다.");
-			}
-	}//모르겠다
-	
+		if(!(pwd>=1000 && pwd <=9999)) {
+			System.out.println("자리 수 안 맞음");
+			return;
+		}
+		
+		int first = pwd  / 1000;
+		int second = pwd / 100 % 10;
+		int third = pwd  / 10 %  10;
+		int fourth = pwd % 10;
+		//문자로 추출해도 상관 없다.
+		
+		if(first == second || first == third || first == fourth || second == third 
+				 || second ==fourth || third == fourth) {
+			System.out.println("중복값 있음");
+		} else {
+		System.out.println("생성 성공");
+		}
+	}
 }

@@ -28,7 +28,9 @@ public class Run {
 		//p7.practice7();
 		
 		OperatorPractice p8 = new OperatorPractice();
-		p8.practice8();
+		//p8.practice8();
+		p8.practice9();
+		
 	}	
 
 }

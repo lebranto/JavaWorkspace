@@ -276,19 +276,30 @@ public class LoopPractice {
 			return;
 		}
 
-		//외부는 소수를 판별
-		//내부는 출력
-		
+		// 외부는 소수를 판별
+		// 내부는 출력
+
 		for (int i = 2; i < num; i++) {
-			
-			if (num % i == 0) {
-				System.out.println("소수가 아닙니다.");
-				break;
-		      }
-			 for (int j = 2; j <= num; j++) {
-				 System.out.print(j + " ");
-				 
-		    }
+			for (int j = 2; j <= i; j++) {
+				if (i % j == 0) {
+					System.out.println("소수가 아닙니다.");
+					break;
+				}
+				System.out.print(i + " ");
+			}
 		}
+	}
+	
+	public void practice12() {
+		
+		int num = (int)(Math.random() *10 + 1);
+		int sum =0;
+		
+		int i = 1;
+		while(i<=num) {
+			sum+=i;
+			i++;			
+		}
+		System.out.println(sum);
 	}
 }

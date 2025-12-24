@@ -166,7 +166,8 @@ public class OperatorPractice {
 		if (pnum3 == cnum3)
 			++st;
 		if (pnum4 == cnum4)
-			++st;
+			++st;	
+		
 
 		if (pnum1 == cnum2)
 			++ball;

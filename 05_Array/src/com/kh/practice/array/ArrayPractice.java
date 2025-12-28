@@ -228,29 +228,52 @@ public class ArrayPractice {
 			if (!ju) {
 				System.out.print(arr[i] + " ");
 			}
-		}		
-		
+		}
+
 	}
+
 	public void practice11() {
 		System.out.print("정수 : ");
-		int num =sc.nextInt();
-		
-		if(num <3 || num%2==0) {
+		int num = sc.nextInt();
+
+		if (num < 3 || num % 2 == 0) {
 			System.out.println("다시 입력해주세요.");
 			practice11();
 			return;
 		}
+
+		int[] arr = new int[num];
+		int a = 1;
+
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = a++;
+
+		}
+
+	}
+
+	public void practice12() {
+		System.out.print("배열의 크기를 입력하세요 : ");
+		int num = sc.nextInt();
 		
 		int [] arr = new int [num];
-		int a = 1;
 		
-		for(int i = 0 ; i<arr.length; i++) {
-			arr[i] = a++;
+		for(int i = 0 ; i< arr.length; i++) {
+			System.out.print(i + "번째 문자열 : ");
+			String st = sc.next();
+		}
+		System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+		char ch = sc.next().charAt(0);
+				
+		if(ch == 'y' || ch == 'Y') {
+			System.out.print("더 입력하고 싶은 개수 : ");
+			int num1 = sc.nextInt();
+		} else if(ch == 'n' || ch == 'N') {
+			for(int j= 0 ; j<arr.length;j++) {
+			System.out.print(arr[j] + "");}
 			
 		}
 		
 	}
-	
-	
 
 }

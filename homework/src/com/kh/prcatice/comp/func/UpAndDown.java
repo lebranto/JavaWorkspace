@@ -60,8 +60,6 @@ public class UpAndDown {
 			}
 			
 		
-			
-			
 			switch (num1) {
 			case 1 : 
 				System.out.println("컴퓨터 : 가위");

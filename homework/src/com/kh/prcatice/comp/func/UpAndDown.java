@@ -16,14 +16,17 @@ public class UpAndDown {
 
 			if (num1 > 100 || num1 < 1) {
 				System.out.println("1~100 사이의 숫자를 입력해주세요");
+				System.out.println();
 				continue;
 			}
 
 			if (num1 > num2) {
 				System.out.println("down !");
+				System.out.println();
 				count++;
 			} else if (num1 < num2) {
 				System.out.println("up !");
+				System.out.println();
 				count++;
 			} else {
 				System.out.println(count + "회만에 맞추셨습니다!");

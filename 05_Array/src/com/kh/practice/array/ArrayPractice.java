@@ -1,5 +1,6 @@
 package com.kh.practice.array;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ArrayPractice {
@@ -159,95 +160,170 @@ public class ArrayPractice {
 	}// 6
 
 	public void practice7() {
+		/*
+		 * System.out.print("문자열 : "); String str = sc.next();
+		 * 
+		 * System.out.print("문자 : "); char ch = sc.next().charAt(0);
+		 * 
+		 * int count = 0;
+		 * 
+		 * for (int i = 0; i < str.length(); i++) { char ch1 = str.charAt(i); if (ch1 ==
+		 * ch) { System.out.println(str + "에 " + ch + "가 존재하는 위치 : " + i); count++; } //
+		 * 먼저 실행?
+		 * 
+		 * } System.out.println(ch + "의 개수 : " + count);
+		 */
+
 		System.out.print("문자열 : ");
 		String str = sc.next();
 
 		System.out.print("문자 : ");
 		char ch = sc.next().charAt(0);
 
+		char[] arr = str.toCharArray();
+		// 문자열을 문자배열로 변환하는 메서드
 		int count = 0;
 
-		for (int i = 0; i < str.length(); i++) {
-			char ch1 = str.charAt(i);
-			if (ch1 == ch) {
-				System.out.println(str + "에 " + ch + "가 존재하는 위치 : " + i);
+		System.out.println(str + "에 " + ch + "가 존재하는 위치(인덱스) : ");
+
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i] == ch) {
 				count++;
-			} // 먼저 실행?
+				System.out.print(i + " ");
+			}
 
 		}
-		System.out.println(ch + "의 개수 : " + count);
-
+		System.out.print(ch + "의 개수 : " + count);
 	}
 
 	public void practice8() {
+		/*
+		 * System.out.print("주민등록번호(-포함) : "); String str = sc.next();
+		 * 
+		 * char[] arr1 = new char[str.length()]; char[] arr2 = arr1;
+		 * 
+		 * for (int i = 0; i < str.length(); i++) { char st = str.charAt(i); if (i <= 7)
+		 * { arr1[i] = st; } else { arr1[i] = '*'; } } System.out.print(arr2);
+		 */
+
 		System.out.print("주민등록번호(-포함) : ");
 		String str = sc.next();
 
-		char[] arr1 = new char[str.length()];
-		char[] arr2 = arr1;
+		char[] origin = str.toCharArray();
+		// 원본배열
+		char[] copy = Arrays.copyOf(origin, origin.length);
+		// 복사본 배열
 
-		for (int i = 0; i < str.length(); i++) {
-			char st = str.charAt(i);
-			if (i <= 7) {
-				arr1[i] = st;
-			} else {
-				arr1[i] = '*';
-			}
+		for (int i = 8; i < copy.length; i++) {
+			copy[i] = '*';
 		}
-		System.out.print(arr2);
 
+		for (int j = 0; j < copy.length; j++) {
+			System.out.println(copy[j]);
+		}
 	}
 
 	public void practice9() {
 		int[] arr = new int[10];
-
-		int max = 0;
-		int min = 0;
 
 		for (int i = 0; i < 10; i++) {
 			int num = (int) (Math.random() * 10 + 1);
 			arr[i] = num;
 			System.out.print(arr[i] + " ");
 		}
+
+		for (int j = 0; j < arr.length; j++) {
+			System.out.println(arr[j] + " ");
+
+		}
+
+		// 최댓값, 최소값
+		int max = arr[0];
+		int min = arr[0];
+
+		for (int i = 1; i < arr.length; i++) {
+			if (arr[i] > max) {
+				max = arr[i];
+			}
+			if (arr[i] < min) {
+				min = arr[i];
+			}
+
+			System.out.println("\n최대값 : " + max);
+			System.out.println("최솟값 : " + min);
+		}
+
 	}
 
 	public void practice10() {
+		/*
+		 * int[] arr = new int[10];
+		 * 
+		 * for (int i = 0; i < arr.length; i++) { int num = (int) (Math.random() * 10 +
+		 * 1); boolean ju = false; arr[i] = num; for (int j = 0; j < i; j++) { if
+		 * (arr[j] == arr[i]) { ju = true; i--; break; } } if (!ju) {
+		 * System.out.print(arr[i] + " "); } }
+		 */
+
 		int[] arr = new int[10];
 
 		for (int i = 0; i < arr.length; i++) {
-			int num = (int) (Math.random() * 10 + 1);
-			boolean ju = false;
-			arr[i] = num;
+			arr[i] = (int) (Math.random() * 10 + 1);
+
+			// 일치하는지 여부, 중복검사
 			for (int j = 0; j < i; j++) {
 				if (arr[j] == arr[i]) {
-					ju = true;
 					i--;
 					break;
 				}
+
 			}
-			if (!ju) {
-				System.out.print(arr[i] + " ");
-			}
+		}
+		for (int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i] + " ");
 		}
 
 	}
 
 	public void practice11() {
+		/*
+		 * System.out.print("정수 : "); int num = sc.nextInt();
+		 * 
+		 * if (num < 3 || num % 2 == 0) { System.out.println("다시 입력해주세요.");
+		 * practice11(); return; }
+		 * 
+		 * int[] arr = new int[num]; int a = 1;
+		 * 
+		 * for (int i = 0; i < arr.length; i++) { arr[i] = a++;
+		 * 
+		 * }
+		 */
+
 		System.out.print("정수 : ");
 		int num = sc.nextInt();
 
-		if (num < 3 || num % 2 == 0) {
-			System.out.println("다시 입력해주세요.");
+		if (!(num % 2 == 1 && num >= 3)) {
+			System.out.println("다시 입력하세요.");
 			practice11();
 			return;
 		}
 
 		int[] arr = new int[num];
-		int a = 1;
+		int mid = num / 2;
+
+		int value = 0;
+
+		// 출력값
 
 		for (int i = 0; i < arr.length; i++) {
-			arr[i] = a++;
-
+			// mid까지는 오름차순
+			if (i <= mid) {
+				arr[i] = ++value;
+			}
+			// mid이후는 내림차순
+			if (i > mid) {
+				arr[i] = --value;
+			}
 		}
 
 	}
@@ -255,25 +331,44 @@ public class ArrayPractice {
 	public void practice12() {
 		System.out.print("배열의 크기를 입력하세요 : ");
 		int num = sc.nextInt();
-		
-		int [] arr = new int [num];
-		
-		for(int i = 0 ; i< arr.length; i++) {
-			System.out.print(i + "번째 문자열 : ");
-			String st = sc.next();
+
+		String[] arr = new String[num];
+		// [null, null,...]
+
+		sc.nextLine(); // 개행문자 제거
+
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print((i + 1) + "번째 문자열 : ");
+			// 1번째 배열부터 출력되기 때문. 실제로는 0번째 배열
+			arr[i] = sc.nextLine();
+			// 띄어쓰기 포함
+
 		}
-		System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
-		char ch = sc.next().charAt(0);
+		while (true) {
+			System.out.print("더 값을 입력하시겠습니까?(Y/N) : ");
+			char ch = sc.next().charAt(0);
+
+			if (ch == 'y' || ch == 'Y') {
+				System.out.print("더 입력하고 싶은 개수 : ");
+				int num1 = sc.nextInt();
+				String[] copy = Arrays.copyOf(arr, arr.length + num1);
 				
-		if(ch == 'y' || ch == 'Y') {
-			System.out.print("더 입력하고 싶은 개수 : ");
-			int num1 = sc.nextInt();
-		} else if(ch == 'n' || ch == 'N') {
-			for(int j= 0 ; j<arr.length;j++) {
-			System.out.print(arr[j] + "");}
-			
+				sc.nextLine(); //개행문자 제거
+
+				for (int i = arr.length; i < copy.length; i++) {
+					System.out.print((i + 1) + "번째 문자열 : ");
+					copy[i]= sc.nextLine();
+					// 띄어쓰기 포함
+				}
+				arr = copy;//얕은 복사
+
+			} else if (ch == 'n' || ch == 'N') {
+				/*for (int j = 0; j < arr.length; j++) {
+					System.out.print(arr[j] + ", ");*/
+					System.out.println(Arrays.toString(arr));
+					break;
+			}
 		}
-		
 	}
 
 }

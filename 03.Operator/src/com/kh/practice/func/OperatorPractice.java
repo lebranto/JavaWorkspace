@@ -146,67 +146,75 @@ public class OperatorPractice {
 		int cnum4 = (int) (Math.random() * 9 + 1);
 
 		System.out.println("숫자가 생성되었습니다.");
+		while (true) {
 
-		System.out.print("4자리 숫자를 입력해 주세요. : ");
+			int st = 0;
+			int ball = 0;
+			int out = 0;
 
-		int pnum = sc.nextInt();
-		int pnum1 = pnum / 1000;
-		int pnum2 = pnum / 100 % 10;
-		int pnum3 = pnum / 10 % 10;
-		int pnum4 = pnum % 10;
+			System.out.print("4자리 숫자를 입력해 주세요. : ");
 
-		int st = 0;
-		int out = 0;
-		int ball = 0;
-
-		if (pnum1 == cnum1)
-			++st;
-		if (pnum2 == cnum2)
-			++st;
-		if (pnum3 == cnum3)
-			++st;
-		if (pnum4 == cnum4)
-			++st;	
-		
-
-		if (pnum1 == cnum2)
-			++ball;
-		if (pnum1 == cnum3)
-			++ball;
-		if (pnum1 == cnum4)
-			++ball;
-		if (pnum2 == cnum3)
-			++ball;
-		if (pnum2 == cnum4)
-			++ball;
-		if (pnum3 == cnum4)
-			++ball;
-
-		if (st == 0 && ball == 0) {
-			out = 4;
-		} else if (st == 1 && ball == 0 || st == 0 && ball == 1) {
-			out = 3;
-		} else if (st == 2 && ball == 0 || st == 0 && ball == 2 || st == 1 && ball == 1 || st == 1 && ball == 1) {
-			out = 2;
-		} else if (st == 3 && ball == 0 || st == 0 && ball == 3 || st == 2 && ball == 1 || st == 1 && ball == 2) {
-
-			System.out.println("st : " + st);
-			System.out.println("ball : " + ball);
-			System.out.println("out : " + out);
-
-			System.out.print(cnum1);
-			System.out.print(cnum2);
-			System.out.print(cnum3);
-			System.out.print(cnum4);
-
-			System.out.println();
+			int pnum = sc.nextInt();
+			int pnum1 = pnum / 1000;
+			int pnum2 = pnum / 100 % 10;
+			int pnum3 = pnum / 10 % 10;
+			int pnum4 = pnum % 10;
 
 			System.out.print(pnum1);
 			System.out.print(pnum2);
 			System.out.print(pnum3);
 			System.out.print(pnum4);
 
+			if (pnum1 == cnum1 && pnum2 == cnum2 && pnum3 == cnum3 && pnum4 == cnum4) {
+				System.out.println("\n맞추셨습니다!");
+				break;
+			}
+			
+			if (pnum1 == cnum1)
+				++st;
+			if (pnum2 == cnum2)
+				++st;
+			if (pnum3 == cnum3)
+				++st;
+			if (pnum4 == cnum4)
+				++st;
+
+			if (pnum1 == cnum2)
+				++ball;
+			if (pnum1 == cnum3)
+				++ball;
+			if (pnum1 == cnum4)
+				++ball;
+			if (pnum2 == cnum3)
+				++ball;
+			if (pnum2 == cnum4)
+				++ball;
+			if (pnum3 == cnum4)
+				++ball;
+
+			if (st == 0 && ball == 0) {
+				out = 4;
+			} else if (st == 1 && ball == 0 || st == 0 && ball == 1) {
+				out = 3;
+			} else if (st == 2 && ball == 0 || st == 0 && ball == 2 || st == 1 && ball == 1 || st == 1 && ball == 1) {
+				out = 2;
+			} else if (st == 3 && ball == 0 || st == 0 && ball == 3 || st == 2 && ball == 1 || st == 1 && ball == 2) {
+				out = 1;
+			} else {
+				out = 0;
+			}
+
+			System.out.println("\nst : " + st);
+			System.out.println("ball : " + ball);
+			System.out.println("out : " + out);
+
+			System.out.println();
+
 		}
+		System.out.print(cnum1);
+		System.out.print(cnum2);
+		System.out.print(cnum3);
+		System.out.print(cnum4);
 
 	}
 }

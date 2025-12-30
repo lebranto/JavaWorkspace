@@ -10,7 +10,7 @@ public class Run {
 		mt1.method1(); //일반 메서드 호출 방법
 		
 		//static 메서드 호출방법(객체생성 없이 호출)
-		System.out.println(MethodTest2.method(1));
+		MethodTest2.method(1);
 	}
 
 }

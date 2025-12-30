@@ -27,7 +27,20 @@ public class FieldTest1 {
 	 */
 
 	private int global; // 전역변수 (필드)
-
+	{
+		//초기화 블럭
+		//객체 생성시 최초 1회 실행
+		global = 50;
+	}
+	
+	public static int num;
+	//static 초기화 블럭 
+	static {
+		//static 변수를 초기화 하는데 사용한다.
+		//프로그램 실행될 때 최초 1번 실행
+		num = 55;
+	}
+	
 	public void test(int num) {  // iun num -> 매개변수(지역변수)
 	int local = 0; //지역변수
 	

@@ -33,6 +33,6 @@ public class SquarController {
 
 	public String print() {
 
-		return "사각형" + s.information();
+		return "사각형 " + s.information();
 	}
 }

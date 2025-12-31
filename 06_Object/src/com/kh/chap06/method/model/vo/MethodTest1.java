@@ -49,6 +49,7 @@ public class MethodTest1 {
 		System.out.println("최소값 : " + min + "최대값 : " +max);
 	}
 	
+	
 	//매개변수 o , 반환형 o
 	
 	public int multiply (int a ,int b) {

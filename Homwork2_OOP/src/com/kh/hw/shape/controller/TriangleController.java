@@ -6,6 +6,11 @@ public class TriangleController {
 	private Shape s = new Shape();
 	
 	public double calcArea(double height, double width) {
+	
+		//s= new Shape(3,height,width);
+		
+		//3 = type 임의의 수라 딱히 의미는 없다.
+		
 		s.setHeight(height);
 		s.setWidth(width);
 		
@@ -19,7 +24,7 @@ public class TriangleController {
 	
 	public String print() {
 		
-		return "삼각형" + s.information();
+		return "삼각형 " + s.information();
 		
 	}
 	

@@ -12,15 +12,16 @@ public class Shape {
 	
 	public Shape () {}
 	
-	public Shape (int type,double height,double width ) {
+	public Shape (int type, double height,double width ) {
 		this.type = type;
 		this.height = height;
 		this.width = width;
 	}
 	
 	public String information(){
-		return height +", " +width+ ", "+color;
+		return height +", " +width+ ", "+color + " ";
 	}
+	//문자열을 반환하는 메서드
 	
 	public void setType (int type) {
 		this.type = type;

@@ -74,6 +74,9 @@ public class MemberMenu {
 		System.out.print("나이 : ");
 		int age = sc.nextInt();
 		
+		
+		mc.insertMember(id, name, pw, email, gender, age);
+		
 	
 		
 		

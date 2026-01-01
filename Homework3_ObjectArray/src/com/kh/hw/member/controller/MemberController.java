@@ -26,18 +26,14 @@ public class MemberController {
 		
 	}
 	
+	
+	
 	public void insertMember(String id, String name, String password
-			, String email, String gender, int age) {
+			, String email, char gender, int age) {
+	
 		
-		
-		
-		m[num].setId(id);
-		m[num].setEmail(email);
-		m[num].setPassword(password);
-		m[num].setName(name);
-		m[num].setGender(gender);
-		m[num].setAge(age);
-		
+		System.out.println(m[0].inform());
+	
 		
 	}
 	

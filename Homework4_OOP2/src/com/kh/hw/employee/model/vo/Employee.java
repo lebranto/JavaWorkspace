@@ -3,7 +3,7 @@ package com.kh.hw.employee.model.vo;
 public class Employee {
 	
 	
-	private int empNO;
+	private int empNo;
 	private String name;
 	private char gender;
 	private String phone;
@@ -15,8 +15,8 @@ public class Employee {
 	public Employee() {}
 	
 	
-	public Employee(int empNO, String name, char gender, String phone) {
-		this.empNO =empNO;
+	public Employee(int empNo, String name, char gender, String phone) {
+		this.empNo =empNo;
 		this.name = name;
 		this.gender = gender;
 		this.phone = phone;
@@ -24,8 +24,8 @@ public class Employee {
 	}
 
 
-	public Employee(int empNO, String name, char gender, String phone, String dept, int salary, double bonus) {
-		this.empNO = empNO;
+	public Employee(int empNo, String name, char gender, String phone, String dept, int salary, double bonus) {
+		this.empNo = empNo;
 		this.name = name;
 		this.gender = gender;
 		this.phone = phone;
@@ -35,13 +35,13 @@ public class Employee {
 	}
 
 
-	public int getEmpNO() {
-		return empNO;
+	public int getEmpNo() {
+		return empNo;
 	}
 
 
-	public void setEmpNO(int empNO) {
-		this.empNO = empNO;
+	public void setEmpNO(int empNo) {
+		this.empNo = empNo;
 	}
 
 
@@ -107,7 +107,7 @@ public class Employee {
 	
 	public String printEmployee() {
 		
-		return "";
+		return empNo + ", " +name + ", "+ gender +", "+ phone +", "+ dept +", "+ salary + "," + bonus;
 	} 
 	
 }

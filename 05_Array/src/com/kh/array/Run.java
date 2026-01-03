@@ -9,12 +9,13 @@ public class Run {
 		//aa.method3();
 		//aa.method4();
 		//aa.method5();
+		//aa.method7();
 		
 		B_ArrayCopy ba = new B_ArrayCopy();
 		//ba.method1();
 		//ba.method2();
 		//ba.method3();
-		//ba.method4();
+		ba.method4();
 		//ba.method5();
 		
 		C_DimensionalArray cd = new C_DimensionalArray();
@@ -23,7 +24,7 @@ public class Run {
 		// [ 은 1차원 배열 주소값
 		//cd.method2();
 		//cd.method3();
-		cd.method4();
+		//cd.method4();
 	}
 
 }

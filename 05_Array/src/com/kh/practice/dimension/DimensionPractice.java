@@ -19,7 +19,7 @@ public class DimensionPractice {
 		String[][] arr = new String[3][3];
 		
 		for (int i = 0; i < arr.length; i++) { // 행기준 반복
-			for (int j = 0; j < arr[i].length; j++) {
+			for (int j = 0; j < arr[i].length; j++) { //열기준 반복
 				arr[i][j] = "(" + i +", "+ j +")";
 				System.out.print(arr[i][j]);
 			}

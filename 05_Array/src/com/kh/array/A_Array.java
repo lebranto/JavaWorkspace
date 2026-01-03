@@ -53,7 +53,7 @@ public class A_Array {
 		System.out.println(arr3[3]);
 		System.out.println(arr3[2]);
 		System.out.println(arr3); 
-		// aar3 = 참조형변수 : 출력문으로 출력하면 주소값이 나오는 변수
+		// arr3 = 참조형변수 : 출력문으로 출력하면 주소값이 나오는 변수
 		
 	}
 	
@@ -169,7 +169,7 @@ public class A_Array {
 		//문자열을 문자 배열로 만드는 방법
 		
 		//1. toCharArray() 함수 사용
-		String str = "merry";
+		String str = "application";
 		char[] arr = str.toCharArray(); //['m','e','r','r','y']
 				
 		//2. for 문으로 문자배열 생성하여 옮겨담기		

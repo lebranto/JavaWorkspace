@@ -16,7 +16,7 @@ public class Run {
 	
 	public static void main(String[] args) {
 		Student std  = new Student();
-		//std.height; 캡슐화를 통해 데이터가 은닉
+		//std.height; 캡슐화를 통해 데이터가 은닉 됨
 		
 		std.setName("민경민");
 		String name = std.getName();

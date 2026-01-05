@@ -105,9 +105,16 @@ public class Employee {
 	}
 	
 	
-	public String printEmployee() {
+	/*public String printEmployee() {
 		
-		return empNo + ", " +name + ", "+ gender +", "+ phone +", "+ dept +", "+ salary + "," + bonus;
-	} 
+		return empNo + ", " +name + ", "+ gender +", "+ phone +", "+ dept +", "+ salary + ", " + bonus;
+	}*/ 
 	
+	
+	
+	public String toString() {
+		
+		return empNo + ", " +name + ", "+ gender +", "+ phone +", "+ dept +", "+ salary + ", " + bonus;
+		
+	} 
 }

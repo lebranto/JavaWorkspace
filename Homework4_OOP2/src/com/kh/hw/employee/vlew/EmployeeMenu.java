@@ -3,6 +3,7 @@ package com.kh.hw.employee.vlew;
 import java.util.Scanner;
 
 import com.kh.hw.employee.controller.EmployeeController;
+import com.kh.hw.employee.model.vo.Employee;
 
 public class EmployeeMenu {
 
@@ -126,7 +127,7 @@ public class EmployeeMenu {
 		char ch = sc.next().charAt(0);
 		
 		if (ch == 'y' || ch == 'Y') {
-			ec.remove();
+			/*Employee e =*/ ec.remove();
 		} else if (ch == 'n' || ch == 'N'){
 			return;
 		} else {
@@ -136,6 +137,16 @@ public class EmployeeMenu {
 	}
 
 	public void printEmp() {
+		
+		String inform = ec.inform();
+			if(inform != null) {
+				System.out.println(ec.inform());			
+			} else {
+				System.out.println("사원의 정보를 찾을 수 없습니다.");
+				
+			}
+			
+
 		
 		System.out.println(ec.inform());
 	}

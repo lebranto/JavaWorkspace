@@ -4,13 +4,16 @@ import com.kh.hw.employee.model.vo.Employee;
 
 public class EmployeeController {
 
-	Employee e = new Employee();
+	private Employee e = new Employee();
 
 	public void add(int empNO, String name, char gender, String phone) {
 		e.setEmpNO(empNO);
 		e.setName(name);
 		e.setGender(gender);
 		e.setPhone(phone);
+		
+		//e = new Employee(empNO,name, gender, phone); <- 이렇게 써도 된다.
+		
 	}
 
 	public void add(int empNO, String name, char gender, String phone, String dept, int salary, double bonus) {
@@ -44,7 +47,12 @@ public class EmployeeController {
 
 	public Employee remove() {
 		
-		e.setEmpNO(0);
+		
+		Employee delete = e; // 기존 주소값 복사
+		e= null; // 삭제처리
+		return delete;
+		
+		/*e.setEmpNO(0);
 		e.setName(null);
 		e.setGender('0');
 		e.setPhone(null);
@@ -53,19 +61,21 @@ public class EmployeeController {
 		e.setBonus(0);
 
 		
-		return e;
+		return e;*/
 
 	}
 
 	public String inform() {
 
-		String s = e.printEmployee();
+		/*String s = e.toString();
 
-		if (e.getName() == null) {
+		if (s == null) {
 			s = "사원의 정보를 찾을 수 없습니다.";
-		}
+		}*/
+		
+		if(e == null) {return null;}
 
-		return s;
+		return e.toString();
 
 	}
 

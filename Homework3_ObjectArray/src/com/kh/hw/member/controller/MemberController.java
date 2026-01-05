@@ -145,19 +145,6 @@ public class MemberController {
 
 	public Member[] printAll() {
 		
-		Member[] m = mc.printAll();
-
-		for (int i = 0; i < m.length; i++) {
-			if (m[i] != null) {
-				System.out.println(m[i].inform());
-			} else {
-				System.out.print(" ");
-			}
-
-		}
-		System.out.println();
-
-		return m;
-	}
-
+	 return m;
+	} 
 }

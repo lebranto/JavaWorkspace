@@ -51,7 +51,7 @@ public class Person {
 	
 	public String toString() {
 		
-		return "";
+		return name + ", " + age + ", " + height + ", " + weight;
 	}
 	
 	

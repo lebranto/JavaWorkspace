@@ -34,7 +34,8 @@ public class Student extends Person {
 	
 	public String toString() {
 		
-		return "";
+		
+		return super.toString() + grade + " , " + major;
 	}
 	
 	

@@ -1,6 +1,6 @@
 package com.kh.chap02_abstract.part02.model.vo;
 
-public class Baby extends Person {
+public class Baby extends Person implements Basic{
 	
 	
 	public Baby() {
@@ -18,10 +18,8 @@ public class Baby extends Person {
 
 	@Override
 	public String toString() {
-		return "Baby [getName()=" + getName() + ", getWeight()=" + getWeight() + ", getHealth()=" + getHealth()
-				+ ", toString()=" + super.toString() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ "]";
-	}
+		return "이름 " + getName() + "몸무게 " + getWeight() + " 건강도" + getHealth();
+				}
 
 
 

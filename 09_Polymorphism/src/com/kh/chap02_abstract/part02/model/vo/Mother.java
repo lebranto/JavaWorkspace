@@ -1,6 +1,13 @@
 package com.kh.chap02_abstract.part02.model.vo;
 
-public class Mother extends Person{
+//인터페이스 상속
+// - 클래스와 클래스의 상속 관계(단일상속) : 클래스명 extends 부모클래스
+// - 클래스와 인터페이스의 상속 관계 (다중상속) : 클래스명 implements 인터페이스 1, 인터페이스 2 ...
+//   -> extends 가 먼저 나와야 함
+// - 인터페이스와 인터페이스의 상속 관계(다중 상속) : 인터페이스명 extends 인터페이스 1, 인터페이스 2 ...
+//  -> 이때는 extends를 쓴다.
+
+public class Mother extends Person implements Basic{
 	
 	private String babyBirth; // 아기 탄생 여부
 	

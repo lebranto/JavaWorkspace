@@ -84,12 +84,12 @@ public class Run {
 			
 			//1. instanceof 자료형 연산자 활용
 			// - 객체가 새로 참조하고 있는 클래스를 확인하여 자료형과 같다면 true / 다르다면  false를 반환
-//			if(arr[i] instanceof Child1) {
-//				((Child1)arr[i]).printChild1();
-//			}else if (arr[i] instanceof Child2) {
-//				((Child2)arr[i]).printChild2();
-//			}	
-//			
+			if(arr[i] instanceof Child1) {
+				((Child1)arr[i]).printChild1();
+			}else if (arr[i] instanceof Child2) {
+				((Child2)arr[i]).printChild2();
+			}	
+			
 			//2. 오버라이딩을 이용하기
 			/*
 			 * 동적 바인딩 

@@ -3,7 +3,6 @@ package com.kh.hw.employee.vlew;
 import java.util.Scanner;
 
 import com.kh.hw.employee.controller.EmployeeController;
-import com.kh.hw.employee.model.vo.Employee;
 
 public class EmployeeMenu {
 

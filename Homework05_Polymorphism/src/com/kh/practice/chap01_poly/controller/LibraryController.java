@@ -5,6 +5,8 @@ import com.kh.practice.chap01_poly.model.vo.Book;
 import com.kh.practice.chap01_poly.model.vo.CookBook;
 import com.kh.practice.chap01_poly.model.vo.Member;
 
+import jdk.internal.org.jline.terminal.TerminalBuilder.SystemOutput;
+
 
 public class LibraryController {
 	
@@ -26,6 +28,7 @@ public class LibraryController {
 	
 	public Member myInfo() {
 		
+		System.out.println(mem);
 		
 		return mem;
 		
@@ -34,16 +37,33 @@ public class LibraryController {
 	public Book[] selectAll() {
 		
 		
+		
+		for(Book bo : bList) {
+		System.out.println(bo.toString());
+		}
 		return bList;
 		
 	}
 	
 	public Book[] searchBook(String keyword) {
 		
+		Book [] key = new Book [5];	
+		Book o = new Book();
+		
+		int count = 0;
+		
+		for (Book s : key) {
+			if(o.getTitle().contains(keyword)) {
+				s = key[count];
+			}
+		}
+		
+		return bList;
+		
 	}
 	
 	public int rentBook(int index) {
-		
+		System.out.println(index);
 	}
 
 }

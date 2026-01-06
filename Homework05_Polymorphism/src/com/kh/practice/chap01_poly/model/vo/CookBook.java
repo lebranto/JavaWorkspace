@@ -20,10 +20,14 @@ public class CookBook extends Book{
 	public void setCoupon(boolean coupon) {
 		this.coupon = coupon;
 	}
+
 	
+	@Override
 	public String toString() {
-		
+		return super.toString()+"CookBook [coupon=" + coupon + "]";
 	}
+	
+	
 	
 	
 }

@@ -66,9 +66,11 @@ public class LibraryMenu {
 	public void selectAll() {
 		Book[] b = lc.selectAll();
 		
-		for (Book bo : b) {
-			System.out.println(bo);
+		for (int i = 0 ; i<b.length; i++) {
+			System.out.println(b[i]);
+			
 		}
+		
 	}
 
 	public void searchBook() {

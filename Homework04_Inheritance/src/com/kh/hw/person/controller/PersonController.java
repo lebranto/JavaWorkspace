@@ -30,7 +30,7 @@ public class PersonController {
 		
 		arr[1] = count;
 
-		return arr;
+		return arr; //배열 주소
 	}
 
 	public void insertStudnt(String name, int age, double height, double weight, int grade, String major) {
@@ -48,13 +48,15 @@ public class PersonController {
 
 	public Student[] printStudent() {
 
-		Student[] std = new Student[s.length];
+		/*Student[] std = new Student[s.length];
 		for (int i = 0; i < s.length; i++) {
 
 			if (std[i] != null) {
 				System.out.println(s.toString());
 			}
-		}
+		}*/ 
+		// 의미 없는 문장..
+	
 		return s;  //<> std로 하면 나오지 않는다.
 	}
 
@@ -75,16 +77,13 @@ public class PersonController {
 
 	public Employee[] printEmployee() {
 
-		Employee[] emp = new Employee[e.length];
-
+		/*Employee[] emp = new Employee[e.length];
 		for (int i = 0; i < e.length; i++) {
-
 			if (emp[i] != null) {
-
 				System.out.println(e.toString());
 			}
-		}
-		return emp;
+		}*/
+		return e;
 	}
 
 }

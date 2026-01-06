@@ -19,7 +19,7 @@ public class Dog extends Animal {
 		this.weight = weight;
 	}
 	
-	
+	@Override
 	public void speak () {
 		
 		System.out.println(super.toString() + "몸무게는 " + weight 

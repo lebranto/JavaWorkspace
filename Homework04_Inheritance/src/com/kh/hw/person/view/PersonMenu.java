@@ -164,7 +164,7 @@ public class PersonMenu {
 
 		Student[] std = pc.printStudent();
 
-		for (Student a : std)
+		for (Student a : std) //a[1],a[2]
 			if (a != null) {
 				System.out.println(a); // <> toString 이 아니라 a 를 사용한다.
 			}

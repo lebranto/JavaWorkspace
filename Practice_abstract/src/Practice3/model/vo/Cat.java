@@ -7,8 +7,7 @@ public class Cat extends Animal{
 	
 	public Cat () {} 
 	
-	public Cat (String name, String kinds, String location
-			, String color) {
+	public Cat (String name, String kinds, String location, String color) {
 		
 		super(name, kinds);
 		this.location = location;
@@ -32,6 +31,7 @@ public class Cat extends Animal{
 		this.color = color;
 	}
 
+	@Override
 	public void speak() {
 
 	System.out.println(super.toString() + location +"에 서식하며, 색상은 "

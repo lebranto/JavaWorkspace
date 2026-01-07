@@ -13,7 +13,7 @@ public class PersonMenu {
 
 	public void mainMenu() {
 
-		int[] count = pc.personCount();
+		int[] count = pc.personCount(); //arr의 주소값의 배열 얕은 복사
 
 		while (true) {
 			System.out.println("학생은 최대 3명까지 저장할 수 있습니다.");

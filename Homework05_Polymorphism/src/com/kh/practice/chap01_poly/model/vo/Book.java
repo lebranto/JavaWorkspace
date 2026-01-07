@@ -49,7 +49,7 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", publisher=" + publisher + "]";
+		return  title + " / " + author + " / " + publisher + " / ";
 	}
 	
 	

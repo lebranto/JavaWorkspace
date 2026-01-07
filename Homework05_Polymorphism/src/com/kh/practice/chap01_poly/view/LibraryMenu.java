@@ -39,15 +39,15 @@ public class LibraryMenu {
 				lc.myInfo();
 				break;
 			case 2:
-				lc.selectAll();
+				selectAll();
 				break;
 			case 3:
-				System.out.println("검색할 제목 키워드 : ");
+				System.out.print("검색할 제목 키워드 : ");
 				String keyword = sc.next();
-				lc.searchBook(keyword);
+				searchBook();
 				break;
 			case 4:
-				System.out.println("대여할도서 번호 선택 : ");
+				System.out.print("대여할도서 번호 선택 : ");
 				int index = sc.nextInt();
 				lc.rentBook(index);
 				break;
@@ -64,20 +64,43 @@ public class LibraryMenu {
 	}
 
 	public void selectAll() {
-		Book[] b = lc.selectAll();
+		Book[] bList = lc.selectAll();
 		
-		for (int i = 0 ; i<b.length; i++) {
-			System.out.println(b[i]);
+		for (int i = 0 ; i<bList.length; i++) {
+			System.out.println((i+1) + "번도서 :" + bList[i]);
 			
 		}
 		
 	}
 
 	public void searchBook() {
-
+		
+		System.out.print("검색할 제목 키워드 : ");
+		String keyword = sc.next();
+		
+		Book[] search = lc.searchBook(keyword);
+		
+		for (Book b : search) {
+			if(b != null) System.out.println(b);
+		}
+	
+		// 여기에서 값을 보내야 한다는 걸 모름..
 	}
 
 	public void rentBook() {
+		selectAll();
+		System.out.print("대여할도서 번호 선택 : ");
+		int index = sc.nextInt();
+		
+		int result = lc.rentBook(index);
+		
+		if(result ==0) {
+			System.out.println("대여 성공");
+		}else if(result == 1) {
+			System.out.println("나이 제한으로 대여 불가");
+		}else {
+			System.out.println("대여 완료, 쿠혼 발급 완ㄴ료");
+		}
 
 	}
 

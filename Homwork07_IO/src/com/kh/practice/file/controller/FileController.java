@@ -17,24 +17,19 @@ public class FileController {
 	}
 	
 	public void fileSave(String file, StringBuilder sb) {
-		FileWriter fo = null;
 		
-		try {
-			fo = new FileWriter(file,true);
-			fd.checkName(file);
-			
-			fo.write(sb.toString()); 
-			//참조 자료형을 문자열로 바꾸기 위해서는 toString을 사용한다.
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		String str = sb.toString();
+		//참조 자료형을 문자열로 바꾸기 위해서는 toString을 사용한다.
 		
+		fd.fileSave(file, str);
 		
 	}
 	
-	public StringBuilder fileOpen(String file) {
+	public StringBuilder fileOpen (String file) {
+		
+		StringBuilder b = new StringBuilder(file);
+		
+		return b;
 		
 	}
 	

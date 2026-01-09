@@ -34,6 +34,12 @@ public class FileController {
 	}
 	
 	public void fileEdit(String file, StringBuilder sb) {
+	
+		
+		String a = sb.toString();
+		
+		fd.fileEdit(file, a);
+		
 		
 	}
 

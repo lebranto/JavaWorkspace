@@ -1,8 +1,9 @@
 package com.kh.practice.book.model.vo;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Book {
+public class Book implements Serializable{
 	
 	private String title;
 	private String author;

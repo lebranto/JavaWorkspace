@@ -1,5 +1,6 @@
 package com.kh.practice.book.model.dao;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -17,18 +18,20 @@ public class BookDAO {
 	
 	public void fileSave(Book[] bArr) {
 		
-		this.bArr = bArr;
-		
-		ObjectOutputStream a = null;
-		
-		
-		try {
-			a=new ObjectOutputStream(new FileOutputStream(new File("Book.txt")));
+		try (ObjectOutputStream a = new ObjectOutputStream(new FileOutputStream("Book.txt"));){
 			
-			for(int i = 0 ; i<bArr.length ; i++) {
-				if(bArr[i] == null) {
-					a.writeObject(bArr);
-					break;
+////			for(int i = 0 ; i<bArr.length ; i++) {
+////				if(bArr[i] == null) {
+////					a.writeObject(bArr[i]);
+////					break;
+////				}
+			
+//			}
+			// 내가 못한거
+			for (Book b : bArr) {
+				if(b != null) {
+				   a.writeObject(b);
+				   break;
 				}
 			}
 			
@@ -38,30 +41,29 @@ public class BookDAO {
 			e.printStackTrace();
 		}
 		
-		try {
-			a.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	public Book[] fileRead() {
 		
-		ObjectInputStream read = null;
 		
 		
-		try {
-			read = new ObjectInputStream(new FileInputStream("Book.txt"));
-		
+		try (ObjectInputStream read  = new ObjectInputStream(
+				new FileInputStream("Book.txt"));){
+			
+			
+			//내가 못한거
+			int index = 0; 
+			
 			while(true) {
 			Book b = (Book) read.readObject();
-			if(bArr != null) {
-				System.out.println(b);
-				}
+			bArr[index] = b;
+			index +=1;
 			}
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+		}catch(EOFException e){  //입력할 값이 더 이상 나오지 않을 때 나오는 오류를 예외처리
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {

@@ -18,6 +18,8 @@ public class BookMenu {
 		
 		bc.makeFile();
 		
+		bArr = bc.fileRead();
+ 		//못한 부분
 	  
 		
 	}
@@ -28,16 +30,16 @@ public class BookMenu {
 			System.out.println("1. 도서 추가 저장");
 			System.out.println("2. 저장 도서 출력");
 			System.out.println("9. 프로그램 끝내기");
-			System.out.println("메뉴 번호 : ");
+			System.out.print("메뉴 번호 : ");
 			int num = sc.nextInt();
 			
 			
 			switch(num){
 			case 1 :
-				bc.fileSave(bArr);
+				fileSave();
 				break;
 			case 2 :
-				bc.fileRead();
+				fileRead();
 				break;
 			case 9 :
 				System.out.println("프로그램 종료");
@@ -52,45 +54,48 @@ public class BookMenu {
 	
 	public void fileSave() {
 		
-		System.out.println("도서명 : ");
+		System.out.print("도서명 : ");
 		String name = sc.next();
 		
-		System.out.println("저자명 : ");
+		System.out.print("저자명 : ");
 		String author = sc.next();
 		
-		System.out.println("도서 가격 : ");
+		System.out.print("도서 가격 : ");
 		int price = sc.nextInt();
 		
-		System.out.println("출판 날짜(yyyy-mm-dd) : ");
+		System.out.print("출판 날짜(yyyy-mm-dd) : ");
 		String str = sc.next();
 		
 		String [] a = str.split("-");
 		
-		String year = a[0];
-		String month = a[1];
-		String day = a[2];
-		
-		
-		int b = Integer.parseInt(year);
-		int c = Integer.parseInt(month);
-		int d = Integer.parseInt(day);
-		
-		
 		Calendar date = Calendar.getInstance();
-		date.set(b, c, d);
+		
+		date.set(Integer.parseInt(a[0]),Integer.parseInt(a[1])-1,Integer.parseInt(a[2]));
+		
+//		String year = a[0];
+//		String month = a[1];
+//		String day = a[2];
+//		
+//		
+//		int b = Integer.parseInt(year);
+//		int c = Integer.parseInt(month);
+//		int d = Integer.parseInt(day);
+//		
+//	
+//		date.set(b, c, d);
 		
 		
-		System.out.println("할인율 : ");
+		System.out.print("할인율 : ");
 		Double sale = sc.nextDouble();
 		
+		Book b = new Book(name, author, price, date, sale);
 		
 		
-		for (int i = 0 ; i< bArr.length ; i++) {
-			
+		for (int i = 0 ; i< 10 ; i++) {
 			if(bArr[i]== null) {
-				bArr[i] = new Book(name, author, price, date, sale);
-			}
-			break;
+				bArr[i] = b;
+				break;
+		}
 		}
 		
 		
@@ -101,7 +106,13 @@ public class BookMenu {
 	
 	public void fileRead() {
 		
-		System.out.println(bc.fileRead());
+		Book[] bArr = bc.fileRead();
+		
+		for(Book b : bArr) {
+			if( b!= null) {
+				System.out.println(b);
+			}
+		}
 		
 	}
 }

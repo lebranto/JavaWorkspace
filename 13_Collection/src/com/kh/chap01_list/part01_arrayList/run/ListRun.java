@@ -181,10 +181,10 @@ public class ListRun {
 			//iter.remove(); 내부의 값을 삭제해 주는 메서드
 			System.out.println(m3);
 		}
-		System.out.println(list);
+
 		System.out.println("==================================");
 		
-		//9. SubList(int index, int index2)
+		//9. SubList(int index1, int index2)
 		// - index1에서부터 index2까지 데이터를 추출한 새로운 subList를 반환하는 메서드
 		List<Music> list2 = list.subList(0, 1);
 		System.out.println(list2);

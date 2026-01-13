@@ -123,7 +123,7 @@ public class SetRun {
 		
 		Comparator<Integer> comp = Collections.reverseOrder();
 		
-		Set<Integer> set2 = new TreeSet(comp); //정수 내림차순 정렬 조건을 가진 객체
+		Set<Integer> set2 = new TreeSet<>(comp); //정수 내림차순 정렬 조건을 가진 객체
 		set2.addAll(set1);
 		System.out.println(set2);
 		

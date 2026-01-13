@@ -75,6 +75,10 @@ public class BookMenu {
 		int price = sc.nextInt();
 		sc.nextLine();
 		
+		//다른 풀이
+		//String [] arr = {"인문", "과학", "의료" " 기타"};
+		//Book b = new Book (title, author, arr[category -1], price);
+		
 		String str = "";
 		
 		switch(category){
@@ -104,11 +108,17 @@ public class BookMenu {
 		ArrayList<Book> booklist = bc.selectList();
 		
 		
-		if(booklist != null) {
+		if(!(booklist.isEmpty())) {
 			for(int i = 0 ; i < booklist.size() ; i++) {
 				System.out.println(booklist.get(i)); 
 				//booklist를 그냥 쓰면 모든 값이 나오게 된다. 
 				//get을 써서 인덱스에 있는 값 하나하나 가져오기
+				//collecttion 에서 null 조건식은 잘 쓰지 않는다..
+				
+				
+				/*for(Book b : bookLits){
+				  System.out.print(b);
+				}*/
 			}
 		}else {
 			System.out.println("존재하는 도서가 없습니다.");
@@ -125,7 +135,7 @@ public class BookMenu {
 
 		ArrayList<Book> searchList = bc.searchBook(keyword);
 		
-		if(searchList != null) {
+		if(!(searchList.isEmpty())) {
 			for(int i = 0 ; i < searchList.size() ; i++) {
 				System.out.println(searchList.get(i));
 			}
@@ -146,12 +156,26 @@ public class BookMenu {
 		System.out.print("삭제할 저자 명 : ");
 		String author = sc.nextLine();
 		
-		Book b = bc.deleteBook(title, author);
+		Book remove = bc.deleteBook(title, author);
+		
+		if(remove!=null) {
+			System.out.println("성공적으로 삭제되었습니다.");
+		} else {
+			System.out.println("삭제할 도서를 찾지 못했습니다.");
+		}
 		
  		
 	}
 	
 	public void ascBook() {
+		
+		int num = bc.ascBook();
+		
+		if(num == 1) {
+			System.out.println("정렬에 성공했습니다.");
+		}else {
+			System.out.println("정렬에 실패했습니다.");
+		}
 		
 	}
 	

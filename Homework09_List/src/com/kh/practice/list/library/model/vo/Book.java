@@ -1,5 +1,7 @@
 package com.kh.practice.list.library.model.vo;
 
+import java.util.Objects;
+
 public class Book implements Comparable<Book> {
 	
 	private String title;
@@ -55,18 +57,66 @@ public class Book implements Comparable<Book> {
 		return "(" + title + " / " + author + " / " + category + " / " + price + ")";
 	}
 	
-	@Override
-	public int hashCode() {
-		
-	}
+//	@Override
+//	public int hashCode() {
+//		
+//		final int prime = 31;
+//		int result = 1;
+//		result = prime * result + price;
+//		result = prime * result + (title == null? 0 : title.hashCode());
+//		result = prime * result + (author == null? 0 : author.hashCode());
+//		result = prime * result + (category == null? 0 : category.hashCode());
+//		
+//		
+//		return (title + author + category + price).hashCode();
+//		
+//		// 전통적인 hashCode 생성방식
+//		
+//	}
+//	
+//	@Override
+//	public boolean equals(Object o) {
+//		
+//		if(o instanceof Book) {
+//			return false;
+//		}
+//		
+//		Book b = (Book) o;
+//		
+//		if(this.title.equals(b.title) && this.author.equals(b.author)
+//				&& this.category.equals(b.title) && this.price==b.price) {
+//			return true;
+//		}else {
+//			return false;
+//		}
+//		
+//	}
 	
-	@Override
-	public boolean equals() {
-		
-	}
+
+	
 	@Override
 	public int compareTo(Book o) {
 		
+	    return this.title.compareTo(o.title);
+		
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(author, category, price, title);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Book other = (Book) obj; // 다운 캐스팅
+		return Objects.equals(author, other.author) && Objects.equals(category, other.category) && price == other.price
+				&& Objects.equals(title, other.title);
 	}
 	
 	

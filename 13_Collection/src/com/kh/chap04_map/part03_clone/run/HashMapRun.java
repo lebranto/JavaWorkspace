@@ -1,8 +1,12 @@
 package com.kh.chap04_map.part03_clone.run;
 
+import java.util.HashMap;
+
+import com.kh.chap04_map.part01_hashMap.model.vo.Snack;
+
 public class HashMapRun <K , V > {
 	
-	private Entry<K, V>[] table;
+	private Entry<K, V>[] table; 
 	private int capacity; // 객체배열의 크기로써 사용
 	private int size;  // 객체배열 내부의 초기화된 객체의 수.
 	
@@ -24,6 +28,8 @@ public class HashMapRun <K , V > {
 	// 객체 생성시 반드시 객체배열의 크기를 지정
 	public HashMapRun(int capacity) {
 		this.capacity = capacity;
+		
+		this.table =new Entry[capacity];
 	}
 	
 	
@@ -53,29 +59,119 @@ public class HashMapRun <K , V > {
 			// - key 값 중복으로 현재 들어온 value로 인덱스 위치의 값을 덥ㅍ어 씌우기
 			if(table[index].key.equals(key)) {
 				table[index].value =value;
+				return;
 			}else {
 				// 2. key는 다르지만 다르지만 hash값이 우연히 일치한 경우
-				//table[index].next = new Entry
+				//table[index].next = new Entry<>(key,value,null);
+				
+				Entry<K,V> next = table [index];
+				while(true) {
+					
+					// 다음으로 뽑은 entry의 key 값이 현재 전달받은 key 값과 동일한 경우(중복)
+					if(next.key.equals(key)) {
+						next.value = value;
+						return;
+						// 중복으로 들어간 값을 바꿀 때 사이즈 추가를 막기 위해서 return 사용
+					}
+					
+					// 현재 entry가 마지막 entry인 경우 -> 추가하는 것
+					if(next.next ==null) {
+						next.next =new Entry<>(key,value,null);
+						break;
+					}
+					
+					next = next.next;
+				}
+				
 			}
 			
 		}
 		
-		
+		size++;
 	}
 	
 	public V get(K key) {
 		
+		int index = getIndex(key);
 		
+		Entry<K,V> entry = table[index];
 		
+		if(entry ==null) {
+			return null;
+		}
+		
+		while(true) {
+			
+			if(entry == null) {
+				break;
+			}
+			
+			
+			if(entry.key.equals(key)) {
+				return entry.value;
+			}
+			
+			entry = entry.next;
+		}
+		
+		return null;
 	}
 	
-	public boolean containskey(String key) {
+	public boolean containskey(K key) {
 		
+		int index = getIndex(key);
+		
+		Entry<K , V> entry = table[index];
+		
+		if (entry ==null) {
+			return false;
+		}
+		
+		do {
+			if(entry.key.equals(key)) {
+				return true;
+			}
+			
+			entry = entry.next;
+		} while(entry != null);
+			
+		
+		return false;
 	}
 	
-	public void remove(String key) {
+	public void remove(K key) {
+		int index = getIndex(key);
+		Entry<K , V> entry = table[index];
 		
-	}
+		//접근시 내부의 값이 null 이라면 메서드 종료
+		if(entry == null) {
+			return;
+		}
+		
+		// 이전 entry 값을 보관하기 위한 변수
+		Entry<K, V> prev = null;
+		
+		do {
+			
+			if(entry.key.equals(key)) {
+				// 첫번째 entry인 경우 table의 index를 통해 삭제
+				
+				if (table[index] == entry) {
+					table[index] =null;
+				}else {
+				// 두번째 이상의 entry 인 경우 next 필드의 값을 null로 변경하여 삭제
+				prev.next = entry.next;
+				}
+			}
+			size--;
+			break;
+		
+//			prev= entry; // 이전값 보관하기
+//			entry = entry.next;
+			
+		} while(entry != null);
+}		
+
 	
 	public int size() {
 		return size;
@@ -113,6 +209,19 @@ public class HashMapRun <K , V > {
 	
 	
 	public static void main(String[] args) {
+		HashMap<String, Snack> hm = new HashMap<>(10);
+		hm.put("다이제", new Snack("초코맛", 1500));
+		hm.put("칸초", new Snack("단맛", 600));
+		hm.put("새우깡", new Snack("짠맛", 500));
+		hm.put("포테이토칩", new Snack("짠맛", 500));
+		System.out.println(hm.get("새우깡")); // 출력 : 짠맛, 500원
+		hm.put("새우깡", new Snack("매운맛", 700));
+		System.out.println(hm.get("새우깡")); // 출력 : 매운맛, 700원
+		System.out.println(hm.containsKey("새우깡")); // 출력 : true
+		System.out.println(hm.size()); // 출력 : 4
+		hm.remove("포테이토칩");
+		System.out.println(hm.containsKey("포테이토칩 ")); // 출력 : false
+		System.out.println(hm.size()); // 출력 : 3
 		
 	}
 

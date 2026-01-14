@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import com.kh.practice.generics.controller.FarmController;
 import com.kh.practice.generics.model.vo.Farm;
+import com.kh.practice.generics.model.vo.Fruit;
 
 public class FarmMenu {
 
@@ -128,7 +129,7 @@ public class FarmMenu {
 		
 		switch(num) {
 		case 1 :
-			Farm fruit = new Farm();
+			Farm fruit = new Fruit(kind,amount);
 			
 			break;
 		case 2 :

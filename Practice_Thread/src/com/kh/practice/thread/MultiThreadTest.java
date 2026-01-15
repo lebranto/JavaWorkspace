@@ -6,11 +6,11 @@ public class MultiThreadTest {
 		
 		Data d = new Data();
 		
-		Thread t1 = new Thread(new Provider(d));
-		Thread t2 = new Thread(new Consumer(d));
+		Thread putThread = new Thread(new Provider(d));
+		Thread getThread = new Thread(new Consumer(d));
 		
-		t1.start();
-		t2.start();
+		putThread.start();
+		getThread.start();
 		
 	}
 

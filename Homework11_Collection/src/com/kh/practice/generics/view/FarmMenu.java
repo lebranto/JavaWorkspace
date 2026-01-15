@@ -64,7 +64,7 @@ public class FarmMenu {
 				changeAmount();
 				break;
 			case 4:
-				printBuyFarm();
+				printFarm();
 				break;
 			case 9:
 				mainMenu();
@@ -96,7 +96,7 @@ public class FarmMenu {
 				removeFarm();
 				break;
 			case 3:
-				printBuyFarm();
+				printFarm();
 				break;
 			case 9:
 				mainMenu();
@@ -169,7 +169,7 @@ public class FarmMenu {
 		System.out.print("이름 : ");
 		String name = sc.next();
 		
-Farm f =new Farm();
+		Farm f =new Farm();
 		
 		switch(num) {
 		case 1 :
@@ -182,20 +182,61 @@ Farm f =new Farm();
 			f = new Nut(kind[2], name);
 		}
 		
-		if(fc.removeFarm(f)) {
-			System.out.println("새 농산물이 추가되었습니다");
+		if(fc.removeKind(f)) {
+			System.out.println("농산물 삭제에 성공했습니다");
 		} else {
-			System.out.println("새 농산물 추가에 실패하였습니다");
+			System.out.println("농산물 삭제에 실패하였습니다");
 		}
 		
 
 	}
 
 	public void changeAmount() {
+		
+		System.out.println("1. 과일 / 2. 채소 / 3. 견과");
+		System.out.print("수정할 종류 번호 : ");
+		int num = sc.nextInt();
+		
+		if(!(num == 1 || num ==2 || num ==3)) {
+			System.out.println("잘못 입력하셨습니다. 다시 입력해주세요");
+			addNewKind();
+			return;
+		}
+		
+		String [] kind = {"과일", "채소" , "견과"};
+		
+		System.out.print("이름 : ");
+		String name = sc.next();
+		
+		System.out.print("수정할 수량: ");
+		int amount = sc.nextInt();
+		
+		Farm f =new Farm();
+		
+		switch(num) {
+		case 1 :
+			f = new Fruit(kind[0],name);
+			break;
+		case 2 :
+			f = new Vegetable(kind[1], name);
+			break;
+		case 3 :
+			f = new Nut(kind[2], name);
+		}
+		
+		
+		if(fc.changeAmount(f,amount)) {
+			System.out.println("농산물 수량이 수정되었습니다.");
+		} else {
+			System.out.println("농산물 수량 수정에 실패하였습니다.");
+		}
 
 	}
 
 	public void printFarm() {
+	
+	System.out.println(fc.printFarm().toString());	
+		
 
 	}
 

@@ -10,7 +10,7 @@ public class Data {
 	public Data() {
 	}
 
-	public int getValue() {
+	public int getValue(){
 
 		synchronized (this) {
 

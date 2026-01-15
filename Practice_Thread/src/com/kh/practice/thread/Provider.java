@@ -15,9 +15,10 @@ public class Provider extends Thread {
 	public void run() {
 
 		for (int i = 0; i < 10; i++) {
-			data.setValue(new Random().nextInt(100) + 1);
+			int value = new Random().nextInt(100) + 1;
+			data.setValue(value);
 			try {
-				Thread.sleep(100);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

@@ -5,6 +5,8 @@ import java.util.Scanner;
 import com.kh.practice.generics.controller.FarmController;
 import com.kh.practice.generics.model.vo.Farm;
 import com.kh.practice.generics.model.vo.Fruit;
+import com.kh.practice.generics.model.vo.Nut;
+import com.kh.practice.generics.model.vo.Vegetable;
 
 public class FarmMenu {
 
@@ -120,38 +122,72 @@ public class FarmMenu {
 			return;
 		}
 		
+		String [] kind = {"과일", "채소" , "견과"};
+		
 		System.out.print("이름 : ");
-		String kind = sc.next();
+		String name = sc.next();
 		
 		System.out.print("수량: ");
 		int amount = sc.nextInt();
-
+		
+		Farm f =new Farm();
 		
 		switch(num) {
 		case 1 :
-			Farm fruit = new Fruit(kind,amount);
-			
+			f = new Fruit(kind[0],name);
 			break;
 		case 2 :
-			Farm vegetable = new Farm();
+			f = new Vegetable(kind[1], name);
 			break;
 		case 3 :
-			Farm nut = new Farm();
+			f = new Nut(kind[2], name);
 		}
 		
-		
-		
-		
-		
-		
-//		선택한 종류에 따라 생성되는 객체가 다름.  
-//		객체 안에 종류와 이름을 저장. 데이터를 저장한 객체와 수량을 fc(FarmController)의  
-//		addNewKind()로 넘기고 전달 받은 반환 값이 true면 “새 농산물이 추가되었습니다.”, 
-//		false면 “새 농산물 추가에 실패하였습니다. 다시 입력해주세요.” 출력
+		if(fc.addNewKind(f, amount)) {
+			System.out.println("새 농산물이 추가되었습니다");
+		} else {
+			System.out.println("새 농산물 추가에 실패하였습니다");
+		}
+	
 
 	}
 
 	public void removeKind() {
+		
+		System.out.println("1. 과일 / 2. 채소 / 3. 견과");
+		System.out.print("삭제할 종류 번호 : ");
+		int num = sc.nextInt();
+		
+		if(!(num == 1 || num ==2 || num ==3)) {
+			System.out.println("잘못 입력하셨습니다. 다시 입력해주세요");
+			addNewKind();
+			return;
+		}
+		
+		String [] kind = {"과일", "채소" , "견과"};
+		
+		System.out.print("이름 : ");
+		String name = sc.next();
+		
+Farm f =new Farm();
+		
+		switch(num) {
+		case 1 :
+			f = new Fruit(kind[0],name);
+			break;
+		case 2 :
+			f = new Vegetable(kind[1], name);
+			break;
+		case 3 :
+			f = new Nut(kind[2], name);
+		}
+		
+		if(fc.removeFarm(f)) {
+			System.out.println("새 농산물이 추가되었습니다");
+		} else {
+			System.out.println("새 농산물 추가에 실패하였습니다");
+		}
+		
 
 	}
 

@@ -13,6 +13,15 @@ public class FarmController {
 	
 	public boolean addNewKind(Farm f, int amount) {
 		
+		if (!(hMap.containsKey(f))){
+			hMap.put(f, amount);
+			return true;
+		}else {
+			return false;
+		}
+		
+		
+		
 	}
 	
 	public boolean removeKind(Farm f) {

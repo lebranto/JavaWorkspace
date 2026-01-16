@@ -1,6 +1,10 @@
 package com.kh.practice.generics.view;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
 
 import com.kh.practice.generics.controller.FarmController;
 import com.kh.practice.generics.model.vo.Farm;
@@ -29,6 +33,8 @@ public class FarmMenu {
 				break;
 			case 2:
 				customerMenu();
+				System.out.println();
+				System.out.println(fc.printFarm().toString());
 				break;
 			case 9:
 				System.out.println("프로그램 종료");
@@ -79,7 +85,12 @@ public class FarmMenu {
 
 	public void customerMenu() {
 		
+		
+		
 		while (true) {
+			System.out.println("현재 KH마트 농산물 수량");
+			printFarm();
+			System.out.println();
 			System.out.println("******* 직원 메뉴 ********");
 			System.out.println("1. 농산물 사기");
 			System.out.println("2. 농산물 빼기");
@@ -96,7 +107,7 @@ public class FarmMenu {
 				removeFarm();
 				break;
 			case 3:
-				printFarm();
+				printBuyFarm();
 				break;
 			case 9:
 				mainMenu();
@@ -116,7 +127,8 @@ public class FarmMenu {
 		System.out.print("추가할 종류 번호 : ");
 		int num = sc.nextInt();
 		
-		if(!(num == 1 || num ==2 || num ==3)) {
+		if(!(num == 1 || num ==2 || num ==3)) { 
+			// 1>=num && num <=3 이라고 해도 됨 어차피 인트니까 
 			System.out.println("잘못 입력하셨습니다. 다시 입력해주세요");
 			addNewKind();
 			return;
@@ -185,7 +197,7 @@ public class FarmMenu {
 		if(fc.removeKind(f)) {
 			System.out.println("농산물 삭제에 성공했습니다");
 		} else {
-			System.out.println("농산물 삭제에 실패하였습니다");
+			System.out.println("농산물 삭제에 실패하였습니다");		
 		}
 		
 
@@ -234,22 +246,103 @@ public class FarmMenu {
 	}
 
 	public void printFarm() {
+		
+		Map <Farm, Integer> map = fc.printFarm();
+		Set<Farm> set = map.keySet();
+		
+		for(Farm f : set) {
+			System.out.println(f+"("+map.get(f)+"개)");
+		}
 	
-	System.out.println(fc.printFarm().toString());	
+	
 		
 
 	}
 
 	public void buyFarm() {
+		
+		System.out.println("1. 과일 / 2. 채소 / 3. 견과");
+		System.out.print("구매 종류 번호 : ");
+		int num = sc.nextInt();
+		
+		if(!(num == 1 || num ==2 || num ==3)) {
+			System.out.println("잘못 입력하셨습니다. 다시 입력해주세요");
+			addNewKind();
+			return;
+		}
+		
+		String [] kind = {"과일", "채소" , "견과"};
+		
+		System.out.print("구매할 이름 : ");
+		String name = sc.next();
+		
+		
+		Farm f =new Farm();
+		
+		switch(num) {
+		case 1 :
+			f = new Fruit(kind[0],name);
+			break;
+		case 2 :
+			f = new Vegetable(kind[1], name);
+			break;
+		case 3 :
+			f = new Nut(kind[2], name);
+		}
+		
+		if(fc.buyFarm(f)) {
+			System.out.println("구매에 성공했습니다.");
+		} else {
+			System.out.println("구매에 실패하였습니다.");
+		}
 
 	}
 
 	public void removeFarm() {
+		System.out.println("1. 과일 / 2. 채소 / 3. 견과");
+		System.out.print("취소 종류 번호 : ");
+		int num = sc.nextInt();
+		
+		if(!(num == 1 || num ==2 || num ==3)) {
+			System.out.println("잘못 입력하셨습니다. 다시 입력해주세요");
+			addNewKind();
+			return;
+		}
+		
+		String [] kind = {"과일", "채소" , "견과"};
+		
+		System.out.print("구매 취소할 것 : ");
+		String name = sc.next();
+		
+		
+		Farm f =new Farm();
+		
+		switch(num) {
+		case 1 :
+			f = new Fruit(kind[0],name);
+			break;
+		case 2 :
+			f = new Vegetable(kind[1], name);
+			break;
+		case 3 :
+			f = new Nut(kind[2], name);
+		}
+		
+		if(fc.removeFarm(f)) {
+			System.out.println("구매 취소에 성공했습니다.");
+		} else {
+			System.out.println("구매 취소에 실패하였습니다.");
+		}
 
 	}
 
 	public void printBuyFarm() {
-
+		List<Farm> list = fc.printBuyFarm();
+		Iterator<Farm> iter = list.iterator();
+		
+		while(iter.hasNext()) {
+			System.out.println(iter.next());
+		}
 	}
 
 }

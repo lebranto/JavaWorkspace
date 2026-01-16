@@ -37,7 +37,7 @@ public class FarmController {
 	
 	public boolean changeAmount(Farm f, int amount) {
 		if(hMap.containsKey(f)){
-			hMap.remove(f, amount);
+			hMap.replace(f, amount);
 			return true;
 		}else {
 			return false;
@@ -46,7 +46,7 @@ public class FarmController {
 	}
 	
 	public HashMap<Farm,Integer> printFarm(){
-
+		
 		
 		
 		return hMap;
@@ -54,15 +54,33 @@ public class FarmController {
 	
 	public boolean buyFarm(Farm f) {
 		
+		if(hMap.containsKey(f) && hMap.get(f) >= 0) {
+			list.add(f);
+			hMap.put(f,hMap.get(f)-1); 
+			return true;			
+		}else {
+			return false;
+		}
+			
+		
 	
 	}
 	
 	public boolean removeFarm(Farm f) {
+		if(list.contains(f)) {
+			list.remove(f);
+			hMap.put(f,hMap.get(f)+1); 
+			return true;
+		}else {
+			return false;
+		}
 		
 	}
 	
 	public ArrayList<Farm> printBuyFarm(){
 		
+		
+		return list;
 	}
 	
 

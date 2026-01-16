@@ -27,7 +27,7 @@ public class Fruit extends Farm{
 
 	@Override
 	public String toString() {
-		return "Fruit [name=" + name + "]";
+		return "과일: " + name;
 	}
 
 	@Override

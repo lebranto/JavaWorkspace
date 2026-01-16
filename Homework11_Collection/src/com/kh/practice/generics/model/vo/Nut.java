@@ -27,7 +27,7 @@ private String name;
 
 	@Override
 	public String toString() {
-		return "Fruit [name=" + name + "]";
+		return "견과: " + name;
 	}
 
 	@Override

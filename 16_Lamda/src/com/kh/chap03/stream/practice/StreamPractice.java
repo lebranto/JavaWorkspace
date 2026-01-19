@@ -55,25 +55,68 @@ public class StreamPractice {
 
         // 1. list에서 중복을 제거한 후 짝수만 출력하는 프로그램을 만드시오.(스트림활용)
         //    결과 : 6 2 4 10
+        list.stream()
+            .distinct()
+            .filter(n -> n%2 ==0)
+            .forEach(n -> System.out.print(n + " "));
 
         // 2. list에서 중복을 제거한 후 값이 5 이상이면서 홀수를 오름차순 출력 하는 프로그램
         //결과 : 9 11
+        list.stream()
+            .distinct()
+            .filter(n -> n>=5)
+            .filter(n -> n%2==1)
+            .sorted()
+            .forEach(n -> System.out.println(n));
 
         // 3. list에서 각 요소에 3을 곱한후 오름차순 출력하는 프로그램
         // 3 6 9 9 12 12 18 27 30 33
+       list.stream()
+           .map(n-> n*3)
+           .sorted()
+           .forEach(n -> System.out.println(n));
 
         // 4. strlist에서 각 문자를 대문자로 변경한 후 List로 반환하는 프로그램
         //[A, A, B, B, C, C, D, E, F, G]
+      List<String> s = strlist.stream()
+                              .map(str -> str.toUpperCase())
+                              .collect(Collectors.toList());
+       
+       System.out.println(s);
+       
 
         // 5. strlist에서 중복값을 제거후 각 문자를 하나의 문자열로 합쳐서 반환해주는 프로그램
         //abcdefg
+       	
+      
+        String str = strlist.stream()
+        		            .distinct()
+        		            .sorted()
+        		            .collect(Collectors.joining());
+        
+        System.out.println(str);
 
         // 6. slist에서 학생의 이름과 나이를 학생이름기 오름차순 정렬하여 출력.
         // 이름: 나이
         //강감찬 : 16 김말똥 : 29 아무개 : 23 이순신 : 25 홍길동 : 15
+        Student st = slist.stream()
+                          .sorted()
+                          .reduce((s1, s2 )->{
+                        	System.out.println(s1.name);
+                          })
+                          .get();
+        
 
         // 7. slist에서 20살 이상인 학생의 평균점수를 구하는 프로그램
         // 80.0
+        
+        Student st = slist.stream()
+                .sorted()
+                .reduce((s1, s2 )->{
+              	System.out.println(s1.name);
+                })
+                .get();
+        
 //      System.out.println(score);
 
         // 8. wordArr내부요소의 공백을 모두 제거한후 List<String>으로 변환하는 프로그램

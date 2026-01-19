@@ -225,14 +225,14 @@ public class StreamMethods {
 		
 		System.out.println(bool);
 		
-		// 4-2) noneMath : 스트림의 요소가 모두 false면 true를 반환
+		// 4-2) noneMatch : 스트림의 요소가 모두 false면 true를 반환
 		
 		bool = Arrays
 				   .asList("홍길동","123","가나다")
 				   .stream()
 		           .noneMatch(s -> s.length() > 4);
 		
-		// 4-3) allMath : 스트림의 모든 요소가 true인 경우 true
+		// 4-3) allMatch : 스트림의 모든 요소가 true인 경우 true
 		bool = Arrays
 				   .asList("홍길동","123","가나다")
 				   .stream()
@@ -252,7 +252,7 @@ public class StreamMethods {
 		
 		// 4-5) findAny : 스트림 요소가 하나라도 존재한다면 해당 요소를 즉시 반환
 		str =Arrays
-				.asList("홍길동2","123","11111")
+				.asList("홍길동2","1234","11111")
 				.stream()
 				.filter(s -> s.length() <= 4)
 				.findAny() //Optional 값으로 반환, 혼자쓰면 에러가 난다.

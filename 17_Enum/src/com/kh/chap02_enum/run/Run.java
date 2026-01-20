@@ -10,6 +10,8 @@ public class Run {
 		System.out.println(CarColor.valueOf("BLACK"));  // BLACK이라는 상수값이 나옴
 		System.out.println(CarColor.valueOf(1));
 		
+	  CarColor.RED.printTest();
+		
 	}
 
 }

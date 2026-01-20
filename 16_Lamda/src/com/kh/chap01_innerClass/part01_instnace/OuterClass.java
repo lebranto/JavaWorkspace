@@ -23,7 +23,7 @@ public class OuterClass {
 	
 	/* public */ private class InnerClass{
 		private int num = 100;
-		private static int sNum = 100;
+	private static int sNum = 100;
 		
 		public void method() {
 			System.out.println(num);
